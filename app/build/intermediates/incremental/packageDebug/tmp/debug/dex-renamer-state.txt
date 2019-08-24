@@ -1,0 +1,4 @@
+#Sat Aug 24 14:28:04 ICT 2019
+base.0=F\:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Aug 24 14:28:05 ICT 2019
+0.baseType=DIRECTORY
+0.base=F\:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+0.path=classes.dex
+0.set=DEX
+count=1
