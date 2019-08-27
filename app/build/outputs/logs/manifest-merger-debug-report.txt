@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\bd8a90dfa8ec008ad8c1efac0e1603c3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\45e30bf6f457c853098afceaa2845d66\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\d917460919b7217714c16301a64b0321\AndroidManifest.xml:17:1-22:12
@@ -31,20 +31,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\rizky\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\b1f720915bbb65a089bcce499a038ae3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\59c5b7e597d624d5d644199c6ee41d35\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\6f52b5e45a6077ead6114db5e93aef5d\AndroidManifest.xml:17:1-22:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
-INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
+INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
 	package
 		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:16:11-49
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-38:12
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:1-42:12
 		INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:15:11-69
@@ -56,12 +56,20 @@ uses-feature#android.hardware.camera
 ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:19:5-60
 	android:name
 		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:19:19-57
-uses-feature#android.hardware.camera.autofocus
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:20:5-70
+uses-permission#android.hardware.camera2.full
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:21:5-68
 	android:name
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:20:19-67
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:21:22-66
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:22:22-78
+uses-feature#android.hardware.camera.autofocus
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:24:5-70
+	android:name
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:24:19-67
 application
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:22:5-36:19
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:26:5-40:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\45e30bf6f457c853098afceaa2845d66\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\45e30bf6f457c853098afceaa2845d66\AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.0.1] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\478a9e401691e86daf1825b03b21cd7c\AndroidManifest.xml:22:5-89
@@ -71,31 +79,31 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\ri
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.1] C:\Users\rizky\.gradle\caches\transforms-2\files-2.1\478a9e401691e86daf1825b03b21cd7c\AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:27:9-35
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:31:9-35
 	android:label
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:25:9-41
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:29:9-41
 	android:roundIcon
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:26:9-54
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:30:9-54
 	android:icon
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:24:9-46
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:28:9-46
 	android:allowBackup
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:27:9-35
 	android:theme
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:28:9-40
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:32:9-40
 activity#com.example.android.tiltspot.MainActivity
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:29:9-35:20
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:33:9-39:20
 	android:name
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:29:19-75
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:33:19-75
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:34:13-38:29
 action#android.intent.action.MAIN
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:31:17-68
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:35:17-68
 	android:name
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:35:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:33:17-76
+ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:37:17-76
 	android:name
-		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml:37:27-74
 uses-sdk
 INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\xampp\htdocs\advanced android\android-advanced-starter-apps\TiltSpot_start\app\src\main\AndroidManifest.xml
