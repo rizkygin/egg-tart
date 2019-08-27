@@ -19,6 +19,7 @@ package com.example.android.tiltspot;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -42,6 +43,7 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -73,10 +75,9 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity
         implements SensorEventListener {
 
-    int mAzzimuth;
+    float mAzzimuth;
     TextView azzimuth ;
 
-    Sensor mRotation;
 
     float[] rMat = new float[9];
     float[] orientation = new float[9];
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity
             cameraDevice= null;
         }
     };
-    private boolean mLastAccelometerSet = false;
 
     TextView mAl ;
     private Button btnCapture;
@@ -115,11 +115,7 @@ public class MainActivity extends AppCompatActivity
         ORIENTATIONS.append(Surface.ROTATION_270,360);
     }
 
-
-    ImageView mImage;
     //camera
-
-
     private CaptureRequest.Builder captureBuilder;
     private Size imageDimension;
     private ImageReader imageReader;
@@ -167,12 +163,23 @@ public class MainActivity extends AppCompatActivity
     // System sensor manager instance.
     private SensorManager mSensorManager;
 
+    //For knowing the vector by using compass
+
+    ImageView mImage;
+    TextView azziText;
+    Sensor accelometer,magnetometer,mRotation;
+    private boolean haveSensor = false;
+    private boolean haveSensor2 = false;
+    private float[] mLastAccelometer = new float[3];
+    private float[] mMagnetometer = new float[3];
+    private boolean mMagnetometerSet = false;
+    private boolean mLastAccelometerSet = false;
     // Accelerometer and magnetometer sensors, as retrieved from the
     // sensor manager.
+    float[] rotationMatrix = new float[9];
     private Sensor mSensorAccelerometer;
     private Sensor mSensorMagnetometer;
     private Sensor mSensorBaromoter;
-    private Sensor mSensorRotation;
 
     // TextViews to display current sensor values.
     private TextView mTextSensorAzimuth,mTextSensorPitch;
@@ -199,7 +206,7 @@ public class MainActivity extends AppCompatActivity
         mAl = findViewById(R.id.value_altitude);
         mImage = findViewById(R.id.com);
 
-        azzimuth = findViewById(R.id.degree);
+        azziText = findViewById(R.id.degree);
         mTextSensorAzimuth = (TextView) findViewById(R.id.value_azimuth);
         mTextSensorPitch = (TextView) findViewById(R.id.value_pitch);
         mTextSensorRoll = (TextView) findViewById(R.id.value_roll);
@@ -219,20 +226,57 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        mSensorManager = (SensorManager) getSystemService(
-                Context.SENSOR_SERVICE);
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        startCompass();
         assert mSensorManager != null;
 
         mSensorBaromoter = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         mSensorAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-        mSensorRotation = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
 
 
         // Get accelerometer and magnetometer sensors from the sensor manager.
         // The getDefaultSensor() method returns null if the sensor
         // is not available on the device.
     }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        startCompass();
+    }
+
+    private void startCompass() {
+        if(mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR) == null){
+            if(mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)==null || mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)== null ){
+                alert();
+            }else{
+                accelometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+                magnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+                haveSensor = mSensorManager.registerListener(this,accelometer,mSensorManager.SENSOR_DELAY_NORMAL);
+                haveSensor2 = mSensorManager.registerListener(this,magnetometer,mSensorManager.SENSOR_DELAY_NORMAL);
+            }
+        }
+        else{
+            mRotation = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+            haveSensor = mSensorManager.registerListener(this,mRotation,mSensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    private void alert() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+        alertDialog.setMessage("Your Device doesn't supported")
+                .setCancelable(false)
+                .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void takePicture() {
@@ -438,9 +482,6 @@ public class MainActivity extends AppCompatActivity
             mSensorManager.registerListener(this, mSensorMagnetometer,
                     SensorManager.SENSOR_DELAY_NORMAL);
         }
-        if(mRotation != null){
-            mSensorManager.registerListener(this,mSensorRotation,mSensorManager.SENSOR_DELAY_NORMAL);
-        }
     }
 
     @Override
@@ -459,26 +500,29 @@ public class MainActivity extends AppCompatActivity
         switch (sensorType) {
             case Sensor.TYPE_ACCELEROMETER:
                 mAccelerometerData = sensorEvent.values.clone();
+                System.arraycopy(sensorEvent.values,0,mLastAccelometer,0,sensorEvent.values.length);
                 mLastAccelometerSet = true;
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
                 mMagnetometerData = sensorEvent.values.clone();
+                System.arraycopy(sensorEvent.values,0,mMagnetometer,0,sensorEvent.values.length);
+                mMagnetometerSet = true;
                 break;
             case Sensor.TYPE_PRESSURE:
                 mBarometer = sensorEvent.values[0];
                 break;
             case Sensor.TYPE_ROTATION_VECTOR:
+                mSensorManager.getRotationMatrixFromVector(rMat,sensorEvent.values);
                 mAzzimuth = (int) (Math.toDegrees(SensorManager.getOrientation(rMat,orientation)[0] + 360 ) %360);
-
-                mAzzimuth = Math.round(mAzzimuth);
-                mImage.setRotation(-mAzzimuth);
                 break;
             default:
             return;
         }
 
+
+
         float altitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE,mBarometer);
-        float[] rotationMatrix = new float[9];
+
         boolean rotationOK = SensorManager.getRotationMatrix(rotationMatrix,
                 null, mAccelerometerData, mMagnetometerData);
 
@@ -487,11 +531,30 @@ public class MainActivity extends AppCompatActivity
             SensorManager.getOrientation(rotationMatrix, orientationValues);
         }
 
-
         float azimuth = orientationValues[0] ;
         float pitch = orientationValues[1];
         float roll = orientationValues[2];
 
+
+
+        mAl.setText(getResources().getString(
+                R.string.value_format, altitude));
+
+        mTextSensorAzimuth.setText(getResources().getString(
+                R.string.value_format, azimuth));
+        mTextSensorPitch.setText(getResources().getString(
+                R.string.value_format, pitch ));
+        mTextSensorRoll.setText(getResources().getString(R.string.value_format, roll));
+
+        if(mLastAccelometerSet && mMagnetometerSet ){
+            SensorManager.getRotationMatrix(rMat,null,mLastAccelometer,mMagnetometer);
+            SensorManager.getOrientation(rMat,orientation);
+            mAzzimuth = (int) (Math.toDegrees(SensorManager.getOrientation(rMat,orientation)[0] + 360 ) %360);
+//            mAzzimuth = (SensorManager.getOrientation(rMat,orientation)[0] + 360) %360;
+        }
+        mAzzimuth = Math.round(mAzzimuth);
+
+        mImage.setRotation(-mAzzimuth);
 
         String where = "No";
 
@@ -512,18 +575,7 @@ public class MainActivity extends AppCompatActivity
         }if(mAzzimuth >=  80 || mAzzimuth > 10){
             where = "NE";
         }
-        azzimuth.setText(mAzzimuth + " ° " + where);
-
-        mAl.setText(getResources().getString(
-                R.string.value_format, altitude));
-
-        mTextSensorAzimuth.setText(getResources().getString(
-                R.string.value_format, azimuth));
-        mTextSensorPitch.setText(getResources().getString(
-                R.string.value_format, pitch ));
-        mTextSensorRoll.setText(getResources().getString(R.string.value_format, roll));
-
-
+        azziText.setText(mAzzimuth + " ° " + where);
 
     }
 
@@ -562,8 +614,19 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         stopBackgroundThread();
+        stop();
         super.onPause();
     }
+
+    private void stop() {
+        if(haveSensor && haveSensor2 ){
+            mSensorManager.unregisterListener(this,accelometer);
+            mSensorManager.unregisterListener(this,magnetometer);
+        }else{
+            mSensorManager.unregisterListener(this,mRotation);
+        }
+    }
+
     private void stopBackgroundThread() {
             mBackgroundThread.quitSafely();
         try{
