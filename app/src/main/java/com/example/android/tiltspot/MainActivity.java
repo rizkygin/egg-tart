@@ -37,10 +37,13 @@ import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Location;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -55,10 +58,16 @@ import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -164,7 +173,6 @@ public class MainActivity extends AppCompatActivity
     private SensorManager mSensorManager;
 
     //For knowing the vector by using compass
-
     ImageView mImage;
     TextView azziText;
     Sensor accelometer,magnetometer,mRotation;
@@ -174,6 +182,13 @@ public class MainActivity extends AppCompatActivity
     private float[] mMagnetometer = new float[3];
     private boolean mMagnetometerSet = false;
     private boolean mLastAccelometerSet = false;
+    //compas 2
+    private float[] mGravity  = new float[3];
+    private float[] mGeomagnetic =  new float[3];
+    float azzimuth2 = 0f;
+    float currentAzzimuth2 = 0f;
+
+
     // Accelerometer and magnetometer sensors, as retrieved from the
     // sensor manager.
     float[] rotationMatrix = new float[9];
@@ -194,6 +209,12 @@ public class MainActivity extends AppCompatActivity
     // non-zero drift.
     private static final float VALUE_DRIFT = 0.05f;
 
+    //location
+    private TextView longitude,latitude;
+    FusedLocationProviderClient mFusedLocationClient;
+    Location mLastLocation;
+    Integer REQUEST_LOCATION_PERMISSION = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -211,19 +232,24 @@ public class MainActivity extends AppCompatActivity
         mTextSensorPitch = (TextView) findViewById(R.id.value_pitch);
         mTextSensorRoll = (TextView) findViewById(R.id.value_roll);
 
+        //location
+        longitude = findViewById(R.id.value_longitude);
+        latitude = findViewById(R.id.value_latitude);
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        getLocation();
+
         textureView = findViewById(R.id.textureView) ;
 
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
 
-        btnCapture = findViewById(R.id.capture);
-        btnCapture.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onClick(View view) {
-                takePicture();
-            }
-        });
+//        btnCapture.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//            @Override
+//            public void onClick(View view) {
+//                takePicture();
+//            }
+//        });
 
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -278,113 +304,113 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void takePicture() {
-        if(cameraDevice ==  null){
-            CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-            try{
-                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraDevice.getId());
-                android.util.Size[] jpegSizes = null;
-                if(characteristics != null){
-                    jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-                    .getOutputSizes(ImageFormat.JPEG);
-                }
-                //capture image with custom Size
-
-                int width = 640;
-                int height = 480 ;
-                if(jpegSizes != null && jpegSizes.length > 0 ){
-                    width = jpegSizes[0].getWidth();
-                    height = jpegSizes[0].getHeight();
-                }
-                final ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
-
-                final List<Surface> outputSurfce = new ArrayList<>(2);
-                outputSurfce.add(reader.getSurface());
-                outputSurfce.add(new Surface(textureView.getSurfaceTexture()));
-
-                final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-                captureBuilder.addTarget(reader.getSurface());
-                captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
-
-                //check orientation
-
-                int rotation = getWindowManager().getDefaultDisplay().getOrientation();
-                captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
-
-                file = new File(Environment.getExternalStorageDirectory()+"/" + UUID.randomUUID().toString()+".jpeg");
-                ImageReader.OnImageAvailableListener readerListener =  new ImageReader.OnImageAvailableListener() {
-                    @Override
-                    public void onImageAvailable(ImageReader imageReader) {
-                        Image image = null;
-
-                        try{
-                            image = reader.acquireLatestImage();
-                            ByteBuffer buffer =  image.getPlanes()[0].getBuffer();
-                            byte[] bytes = new byte[buffer.capacity()];
-
-                            buffer.get(bytes);
-                            save(bytes);
-                        }
-                        catch (FileNotFoundException e){
-                            e.printStackTrace();
-                        }
-                        catch (IOException e){
-                            e.printStackTrace();
-                        }
-                        finally {
-                            if(image!= null){
-                                image.close();
-                            }
-                        }
-                    }
-
-                    private void save(byte[] bytes) throws IOException {
-                        OutputStream outputStream = null;
-                        try{
-                            outputStream = new FileOutputStream(file);
-                            outputStream.write(bytes);
-                        }finally {
-                            if ( outputStream != null) {
-                                outputStream.close();
-                            }
-                        }
-                    }
-                };
-                reader.setOnImageAvailableListener(readerListener,mBackgroundHandler);
-                final CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
-                    @Override
-                    public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
-                        super.onCaptureCompleted(session, request, result);
-                        Toast.makeText(MainActivity.this, "Saved" + file, Toast.LENGTH_SHORT).show();
-                    }
-                };
-                cameraDevice.createCaptureSession(outputSurfce, new CameraCaptureSession.StateCallback(){
-
-
-                    @Override
-                    public void onConfigured(CameraCaptureSession cameraCaptureSession) {
-                        try {
-                            cameraCaptureSession.capture(captureBuilder.build(),captureListener,mBackgroundHandler );
-                        } catch (CameraAccessException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-
-                    @Override
-                    public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-
-                    }
-                },mBackgroundHandler);
-
-
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    private void takePicture() {
+//        if(cameraDevice ==  null){
+//            CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+//            try{
+//                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraDevice.getId());
+//                android.util.Size[] jpegSizes = null;
+//                if(characteristics != null){
+//                    jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
+//                    .getOutputSizes(ImageFormat.JPEG);
+//                }
+//                //capture image with custom Size
+//
+//                int width = 640;
+//                int height = 480 ;
+//                if(jpegSizes != null && jpegSizes.length > 0 ){
+//                    width = jpegSizes[0].getWidth();
+//                    height = jpegSizes[0].getHeight();
+//                }
+//                final ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
+//
+//                final List<Surface> outputSurfce = new ArrayList<>(2);
+//                outputSurfce.add(reader.getSurface());
+//                outputSurfce.add(new Surface(textureView.getSurfaceTexture()));
+//
+//                final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+//                captureBuilder.addTarget(reader.getSurface());
+//                captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
+//
+//                //check orientation
+//
+//                int rotation = getWindowManager().getDefaultDisplay().getOrientation();
+//                captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
+//
+//                file = new File(Environment.getExternalStorageDirectory()+"/" + UUID.randomUUID().toString()+".jpeg");
+//                ImageReader.OnImageAvailableListener readerListener =  new ImageReader.OnImageAvailableListener() {
+//                    @Override
+//                    public void onImageAvailable(ImageReader imageReader) {
+//                        Image image = null;
+//
+//                        try{
+//                            image = reader.acquireLatestImage();
+//                            ByteBuffer buffer =  image.getPlanes()[0].getBuffer();
+//                            byte[] bytes = new byte[buffer.capacity()];
+//
+//                            buffer.get(bytes);
+//                            save(bytes);
+//                        }
+//                        catch (FileNotFoundException e){
+//                            e.printStackTrace();
+//                        }
+//                        catch (IOException e){
+//                            e.printStackTrace();
+//                        }
+//                        finally {
+//                            if(image!= null){
+//                                image.close();
+//                            }
+//                        }
+//                    }
+//
+//                    private void save(byte[] bytes) throws IOException {
+//                        OutputStream outputStream = null;
+//                        try{
+//                            outputStream = new FileOutputStream(file);
+//                            outputStream.write(bytes);
+//                        }finally {
+//                            if ( outputStream != null) {
+//                                outputStream.close();
+//                            }
+//                        }
+//                    }
+//                };
+//                reader.setOnImageAvailableListener(readerListener,mBackgroundHandler);
+//                final CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
+//                    @Override
+//                    public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
+//                        super.onCaptureCompleted(session, request, result);
+//                        Toast.makeText(MainActivity.this, "Saved" + file, Toast.LENGTH_SHORT).show();
+//                    }
+//                };
+//                cameraDevice.createCaptureSession(outputSurfce, new CameraCaptureSession.StateCallback(){
+//
+//
+//                    @Override
+//                    public void onConfigured(CameraCaptureSession cameraCaptureSession) {
+//                        try {
+//                            cameraCaptureSession.capture(captureBuilder.build(),captureListener,mBackgroundHandler );
+//                        } catch (CameraAccessException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
+//
+//                    }
+//                },mBackgroundHandler);
+//
+//
+//            } catch (CameraAccessException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void createCameraPreview() {
@@ -495,17 +521,24 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
+        final float alpha = 0.97f;
         int sensorType = sensorEvent.sensor.getType();
 //        mBarometer = sensorEvent.values[0];
         switch (sensorType) {
             case Sensor.TYPE_ACCELEROMETER:
                 mAccelerometerData = sensorEvent.values.clone();
-                System.arraycopy(sensorEvent.values,0,mLastAccelometer,0,sensorEvent.values.length);
+//                System.arraycopy(sensorEvent.values,0,mLastAccelometer,0,sensorEvent.values.length);
+                mGravity[0] = alpha*mGravity[0]+(1-alpha)*sensorEvent.values[0];
+                mGravity[1] = alpha*mGravity[1]+(1-alpha)*sensorEvent.values[1];
+                mGravity[2] = alpha*mGravity[2]+(1-alpha)*sensorEvent.values[2];
                 mLastAccelometerSet = true;
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
                 mMagnetometerData = sensorEvent.values.clone();
-                System.arraycopy(sensorEvent.values,0,mMagnetometer,0,sensorEvent.values.length);
+                mGeomagnetic[0] = alpha*mGeomagnetic[0]+(1-alpha)*sensorEvent.values[0];
+                mGeomagnetic[1] = alpha*mGeomagnetic[1]+(1-alpha)*sensorEvent.values[1];
+                mGeomagnetic[2] = alpha*mGeomagnetic[2]+(1-alpha)*sensorEvent.values[2];
+//                System.arraycopy(sensorEvent.values,0,mMagnetometer,0,sensorEvent.values.length);
                 mMagnetometerSet = true;
                 break;
             case Sensor.TYPE_PRESSURE:
@@ -513,12 +546,11 @@ public class MainActivity extends AppCompatActivity
                 break;
             case Sensor.TYPE_ROTATION_VECTOR:
                 mSensorManager.getRotationMatrixFromVector(rMat,sensorEvent.values);
-                mAzzimuth = (int) (Math.toDegrees(SensorManager.getOrientation(rMat,orientation)[0] + 360 ) %360);
+//                mAzzimuth = (int) (Math.toDegrees(SensorManager.getOrientation(rMat,orientation)[0] + 360 ) %360);
                 break;
             default:
             return;
         }
-
 
 
         float altitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE,mBarometer);
@@ -526,7 +558,7 @@ public class MainActivity extends AppCompatActivity
         boolean rotationOK = SensorManager.getRotationMatrix(rotationMatrix,
                 null, mAccelerometerData, mMagnetometerData);
 
-        float orientationValues[] = new float[3];
+        float orientationValues []= new float[3];
         if (rotationOK) {
             SensorManager.getOrientation(rotationMatrix, orientationValues);
         }
@@ -546,36 +578,55 @@ public class MainActivity extends AppCompatActivity
                 R.string.value_format, pitch ));
         mTextSensorRoll.setText(getResources().getString(R.string.value_format, roll));
 
+
+
         if(mLastAccelometerSet && mMagnetometerSet ){
-            SensorManager.getRotationMatrix(rMat,null,mLastAccelometer,mMagnetometer);
+            SensorManager.getRotationMatrix(rMat,null,mGravity,mGeomagnetic);
             SensorManager.getOrientation(rMat,orientation);
-            mAzzimuth = (int) (Math.toDegrees(SensorManager.getOrientation(rMat,orientation)[0] + 360 ) %360);
+            mAzzimuth = (int) Math.toDegrees(orientation[0]);
+            mAzzimuth = (mAzzimuth+360)%360;
 //            mAzzimuth = (SensorManager.getOrientation(rMat,orientation)[0] + 360) %360;
         }
         mAzzimuth = Math.round(mAzzimuth);
 
+//        Animation anim = new RotateAnimation(-currentAzzimuth2,-mAzzimuth,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+//        currentAzzimuth2 =  mAzzimuth;
+//
+//        anim.setDuration(10);
+//        anim.setRepeatCount(0);
+//        anim.setFillAfter(true);
+
         mImage.setRotation(-mAzzimuth);
 
-        String where = "No";
+
+//        String where = "No";
 
         if(mAzzimuth >=  350 || mAzzimuth <= 10){
-            where = "N";
-        }if(mAzzimuth >=  350 || mAzzimuth > 280){
-            where = "NW";
-        }if(mAzzimuth >=  280 || mAzzimuth > 260){
-            where = "W";
-        }if(mAzzimuth >=  260 || mAzzimuth > 190){
-            where = "SW";
-        }if(mAzzimuth >=  190 || mAzzimuth > 170){
-            where = "S";
-        }if(mAzzimuth >=  170 || mAzzimuth > 100){
-            where = "SE";
-        }if(mAzzimuth >=  100 || mAzzimuth >80 ){
-            where = "E";
-        }if(mAzzimuth >=  80 || mAzzimuth > 10){
-            where = "NE";
+//            where = "N";
+
+            azziText.setText(mAzzimuth + " ° " + "N");
+        }else if(mAzzimuth >=  350 || mAzzimuth > 280){
+//            where = "NW";
+            azziText.setText(mAzzimuth + " ° " + "NW");
+        }else if(mAzzimuth >=  280 || mAzzimuth > 260){
+//            where = "W";
+            azziText.setText(mAzzimuth + " ° " + "W");
+        }else if(mAzzimuth >=  260 || mAzzimuth > 190){
+//            where = "SW";
+            azziText.setText(mAzzimuth + " ° " + "SW");
+        }else if(mAzzimuth >=  190 || mAzzimuth > 170){
+//            where = "S";
+            azziText.setText(mAzzimuth + " ° " + "S");
+        }else if(mAzzimuth >=  170 || mAzzimuth > 100){
+//            where = "SE";
+            azziText.setText(mAzzimuth + " ° " + "SE");
+        }else if(mAzzimuth >=  100 || mAzzimuth >80 ){
+//            where = "E";
+            azziText.setText(mAzzimuth + " ° " + "E");
+        }else if(mAzzimuth >=  80 || mAzzimuth > 10){
+//            where = "NE";
+            azziText.setText(mAzzimuth + " ° " + "NE");
         }
-        azziText.setText(mAzzimuth + " ° " + where);
 
     }
 
@@ -646,6 +697,48 @@ public class MainActivity extends AppCompatActivity
                 finish();
             }
         }
+        switch (requestCode) {
+            case 2:
+// If the permission is granted, get the location,
+// otherwise, show a Toast
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    getLocation();
+                } else {
+                    Toast.makeText(this,
+                            "Permission Denied",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
 
+    }
+
+    public void getLocation() {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]
+                            {Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_LOCATION_PERMISSION);
+        } else {
+            mFusedLocationClient.getLastLocation().addOnSuccessListener(
+                    new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                mLastLocation = location;
+                                latitude.setText(getString(R.string.format,mLastLocation.getLatitude()));
+                                longitude.setText(getString(R.string.format,mLastLocation.getLongitude()));
+
+                            } else {
+                                longitude.setText("No location founded");
+                                latitude.setText("No location founded");
+                            }
+                        }
+
+                    });
+
+        }
     }
 }
