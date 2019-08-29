@@ -56,6 +56,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_edit_location_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -82,6 +86,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\478a9e401691e86daf1825b03b21cd7c\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_fab_add.png.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\drawable-xhdpi-v4\\fab_add.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -144,6 +152,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_fab_add.png.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\drawable-xxhdpi-v4\\fab_add.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
     },
@@ -200,12 +212,20 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_send_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -246,6 +266,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_light.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_edit_location_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_button_bar_material.xml.flat",
@@ -350,6 +374,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bebas.xml.flat",
@@ -580,6 +608,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_edit_location_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -696,6 +728,14 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_slide_out_to_right.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_slide_out_to_right.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_edit_location_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
@@ -748,6 +788,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_slide_in_from_right.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_slide_in_from_right.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
@@ -768,6 +812,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_arrow_upward_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
@@ -778,6 +826,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\478a9e401691e86daf1825b03b21cd7c\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_edit_location_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
@@ -1000,6 +1052,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\anim\\abc_popup_exit.xml"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_arrow_upward_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
@@ -1014,6 +1070,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_scale_down.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_scale_down.xml"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -1038,6 +1098,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
@@ -1148,6 +1212,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_arrow_upward_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
     },
@@ -1196,6 +1264,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_arrow_upward_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
@@ -1204,16 +1276,16 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\478a9e401691e86daf1825b03b21cd7c\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_default.xml.flat",
-        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\color\\abc_tint_default.xml"
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
-        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_default.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1240,8 +1312,16 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_slide_in_from_left.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_slide_in_from_left.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_fab_add.png.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\drawable-hdpi-v4\\fab_add.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
@@ -1264,12 +1344,12 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
-        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
-        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_shrink_fade_out_from_bottom.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -1284,12 +1364,20 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_fab_add.png.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\drawable-mdpi-v4\\fab_add.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -1320,6 +1408,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_arrow_upward_black_24dp.xml.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_arrow_upward_black_24dp.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -1330,6 +1422,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_arrow_upward_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_dialog_material_background.xml.flat",
@@ -1370,6 +1466,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_arrow_drop_right_black_24dp.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_send_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_send_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
@@ -1460,6 +1560,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_slide_out_to_left.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_slide_out_to_left.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
@@ -1528,6 +1632,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\7c93bb95adf8f8332b67f6405781fade\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_edit_location_black_24dp.xml.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_edit_location_black_24dp.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
@@ -1558,6 +1666,14 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_color_highlight_material.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_send_black_24dp.xml.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_send_black_24dp.xml"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_arrow_upward_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_arrow_upward_black_24dp.png"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -1684,6 +1800,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_edit_location_black_24dp.png.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_edit_location_black_24dp.png"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_material.xml.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable\\abc_ratingbar_material.xml"
     },
@@ -1750,6 +1870,10 @@
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_36dp.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\anim_fab_scale_up.xml.flat",
+        "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\b1b2f4aa6ef67c6d517bf1da33984ba7\\res\\anim\\fab_scale_up.xml"
     },
     {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
