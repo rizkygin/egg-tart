@@ -208,6 +208,10 @@
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
+        "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\layout_setting_dialog.xml.flat",
+        "source": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\src\\main\\res\\layout\\setting_dialog.xml"
+    },
+    {
         "merged": "F:\\xampp\\htdocs\\advanced android\\android-advanced-starter-apps\\TiltSpot_start\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\rizky\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a90dfa8ec008ad8c1efac0e1603c3\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },

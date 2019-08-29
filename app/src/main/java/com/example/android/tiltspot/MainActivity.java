@@ -65,6 +65,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -82,7 +83,7 @@ import java.util.UUID;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity
-        implements SensorEventListener {
+        implements SensorEventListener, SettingDialog.SettingDialogListener {
 
     float mAzzimuth;
     TextView azzimuth ;
@@ -162,7 +163,6 @@ public class MainActivity extends AppCompatActivity
     //save to file
     private File file;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
-    private boolean mFlashSupported;
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
@@ -215,6 +215,8 @@ public class MainActivity extends AppCompatActivity
     Location mLastLocation;
     Integer REQUEST_LOCATION_PERMISSION = 2;
 
+    //count
+    private TextView height;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -240,16 +242,27 @@ public class MainActivity extends AppCompatActivity
 
         textureView = findViewById(R.id.textureView) ;
 
+        //count
+        height = findViewById(R.id.height);
+
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
 
-//        btnCapture.setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//            @Override
-//            public void onClick(View view) {
-//                takePicture();
-//            }
-//        });
+        FloatingActionButton send = findViewById(R.id.send);
+        FloatingActionButton setting =  findViewById(R.id.setting);
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                sendingCoordinat();
+            }
+        });
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                configuration();
+            }
+        });
 
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -264,6 +277,11 @@ public class MainActivity extends AppCompatActivity
         // Get accelerometer and magnetometer sensors from the sensor manager.
         // The getDefaultSensor() method returns null if the sensor
         // is not available on the device.
+    }
+
+    private void configuration() {
+         SettingDialog setting_dialog =  new SettingDialog();
+         setting_dialog.show(getSupportFragmentManager(),"Setting Dialog");
     }
 
     @Override
@@ -304,113 +322,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//    private void takePicture() {
-//        if(cameraDevice ==  null){
-//            CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-//            try{
-//                CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraDevice.getId());
-//                android.util.Size[] jpegSizes = null;
-//                if(characteristics != null){
-//                    jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-//                    .getOutputSizes(ImageFormat.JPEG);
-//                }
-//                //capture image with custom Size
-//
-//                int width = 640;
-//                int height = 480 ;
-//                if(jpegSizes != null && jpegSizes.length > 0 ){
-//                    width = jpegSizes[0].getWidth();
-//                    height = jpegSizes[0].getHeight();
-//                }
-//                final ImageReader reader = ImageReader.newInstance(width,height,ImageFormat.JPEG,1);
-//
-//                final List<Surface> outputSurfce = new ArrayList<>(2);
-//                outputSurfce.add(reader.getSurface());
-//                outputSurfce.add(new Surface(textureView.getSurfaceTexture()));
-//
-//                final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-//                captureBuilder.addTarget(reader.getSurface());
-//                captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
-//
-//                //check orientation
-//
-//                int rotation = getWindowManager().getDefaultDisplay().getOrientation();
-//                captureBuilder.set(CaptureRequest.JPEG_ORIENTATION,ORIENTATIONS.get(rotation));
-//
-//                file = new File(Environment.getExternalStorageDirectory()+"/" + UUID.randomUUID().toString()+".jpeg");
-//                ImageReader.OnImageAvailableListener readerListener =  new ImageReader.OnImageAvailableListener() {
-//                    @Override
-//                    public void onImageAvailable(ImageReader imageReader) {
-//                        Image image = null;
-//
-//                        try{
-//                            image = reader.acquireLatestImage();
-//                            ByteBuffer buffer =  image.getPlanes()[0].getBuffer();
-//                            byte[] bytes = new byte[buffer.capacity()];
-//
-//                            buffer.get(bytes);
-//                            save(bytes);
-//                        }
-//                        catch (FileNotFoundException e){
-//                            e.printStackTrace();
-//                        }
-//                        catch (IOException e){
-//                            e.printStackTrace();
-//                        }
-//                        finally {
-//                            if(image!= null){
-//                                image.close();
-//                            }
-//                        }
-//                    }
-//
-//                    private void save(byte[] bytes) throws IOException {
-//                        OutputStream outputStream = null;
-//                        try{
-//                            outputStream = new FileOutputStream(file);
-//                            outputStream.write(bytes);
-//                        }finally {
-//                            if ( outputStream != null) {
-//                                outputStream.close();
-//                            }
-//                        }
-//                    }
-//                };
-//                reader.setOnImageAvailableListener(readerListener,mBackgroundHandler);
-//                final CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
-//                    @Override
-//                    public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
-//                        super.onCaptureCompleted(session, request, result);
-//                        Toast.makeText(MainActivity.this, "Saved" + file, Toast.LENGTH_SHORT).show();
-//                    }
-//                };
-//                cameraDevice.createCaptureSession(outputSurfce, new CameraCaptureSession.StateCallback(){
-//
-//
-//                    @Override
-//                    public void onConfigured(CameraCaptureSession cameraCaptureSession) {
-//                        try {
-//                            cameraCaptureSession.capture(captureBuilder.build(),captureListener,mBackgroundHandler );
-//                        } catch (CameraAccessException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-//
-//                    }
-//                },mBackgroundHandler);
-//
-//
-//            } catch (CameraAccessException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void createCameraPreview() {
@@ -740,5 +651,11 @@ public class MainActivity extends AppCompatActivity
                     });
 
         }
+    }
+
+    @Override
+    public void applyValue(Integer Height) {
+        height.setText("H :" + Height.toString());
+
     }
 }

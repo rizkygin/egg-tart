@@ -259,6 +259,7 @@ limitations under the License. -->
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
+                    android:id="@+id/height"
                     android:padding="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
