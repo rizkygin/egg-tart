@@ -97,18 +97,18 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int down = 0x7f07003e;
-        public static final int end = 0x7f070040;
-        public static final int fab_label = 0x7f070043;
-        public static final int left = 0x7f07005d;
-        public static final int marquee = 0x7f070064;
-        public static final int middle = 0x7f070067;
-        public static final int mini = 0x7f070068;
-        public static final int none = 0x7f07006b;
-        public static final int normal = 0x7f07006c;
-        public static final int right = 0x7f070077;
-        public static final int start = 0x7f070097;
-        public static final int up = 0x7f0700aa;
+        public static final int down = 0x7f070043;
+        public static final int end = 0x7f070045;
+        public static final int fab_label = 0x7f070048;
+        public static final int left = 0x7f070062;
+        public static final int marquee = 0x7f070069;
+        public static final int middle = 0x7f07006c;
+        public static final int mini = 0x7f07006d;
+        public static final int none = 0x7f070070;
+        public static final int normal = 0x7f070071;
+        public static final int right = 0x7f07007c;
+        public static final int start = 0x7f07009c;
+        public static final int up = 0x7f0700af;
     }
     public static final class styleable {
         private styleable() {}

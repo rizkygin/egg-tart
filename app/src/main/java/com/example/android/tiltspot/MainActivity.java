@@ -85,12 +85,12 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity
         implements SensorEventListener, SettingDialog.SettingDialogListener {
 
-    float mAzzimuth;
+    private float mAzzimuth;
     TextView azzimuth ;
 
 
-    float[] rMat = new float[9];
-    float[] orientation = new float[9];
+    private float[] rMat = new float[9];
+    private float[] orientation = new float[9];
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private CameraDevice.StateCallback statecallback = new CameraDevice.StateCallback() {
@@ -113,17 +113,7 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
-    TextView mAl ;
-    private Button btnCapture;
-
-    //check state orientation of output camera
-    private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
-    static{
-        ORIENTATIONS.append(Surface.ROTATION_0,90);
-        ORIENTATIONS.append(Surface.ROTATION_90,180);
-        ORIENTATIONS.append(Surface.ROTATION_180,270);
-        ORIENTATIONS.append(Surface.ROTATION_270,360);
-    }
+    TextView mAl;
 
     //camera
     private CaptureRequest.Builder captureBuilder;
@@ -178,15 +168,11 @@ public class MainActivity extends AppCompatActivity
     Sensor accelometer,magnetometer,mRotation;
     private boolean haveSensor = false;
     private boolean haveSensor2 = false;
-    private float[] mLastAccelometer = new float[3];
-    private float[] mMagnetometer = new float[3];
     private boolean mMagnetometerSet = false;
     private boolean mLastAccelometerSet = false;
     //compas 2
     private float[] mGravity  = new float[3];
     private float[] mGeomagnetic =  new float[3];
-    float azzimuth2 = 0f;
-    float currentAzzimuth2 = 0f;
 
 
     // Accelerometer and magnetometer sensors, as retrieved from the
@@ -217,6 +203,13 @@ public class MainActivity extends AppCompatActivity
 
     //count
     private TextView height;
+    private Button dist;
+    private Button count;
+    private double distance;
+    private double degree;
+    //display height and Display Distance
+    private TextView mDisplayD , mDisplayH;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -243,7 +236,28 @@ public class MainActivity extends AppCompatActivity
         textureView = findViewById(R.id.textureView) ;
 
         //count
+
         height = findViewById(R.id.height);
+        dist = findViewById(R.id.distance);
+        count = findViewById(R.id.calculate);
+        mDisplayD = findViewById(R.id.displayDistance);
+        mDisplayH = findViewById(R.id.displayHeight);
+        final String  h = height.getText().toString();
+        dist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count.setVisibility(View.VISIBLE);
+                distance =  Integer.parseInt(height.getText().toString()) * Math.tan(degree);
+                if(distance < 0 ){
+                    distance = -distance;
+                }
+                Toast.makeText(MainActivity.this, "tan " + Math.tan(degree), Toast.LENGTH_SHORT).show();
+
+                mDisplayD.setVisibility(View.VISIBLE);
+                mDisplayD.setText(getResources().getString(R.string.value_format,distance)+ " M");
+//                dist.setVisibility(View.INVISIBLE);
+            }
+        });
 
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
@@ -475,7 +489,12 @@ public class MainActivity extends AppCompatActivity
         }
 
         float azimuth = orientationValues[0] ;
-        float pitch = orientationValues[1];
+        double pitch = orientationValues[1];
+
+        if(pitch < 0){
+            pitch = -pitch;
+            this.degree = (double) pitch;
+        }
         float roll = orientationValues[2];
 
 
@@ -500,24 +519,17 @@ public class MainActivity extends AppCompatActivity
         }
         mAzzimuth = Math.round(mAzzimuth);
 
-//        Animation anim = new RotateAnimation(-currentAzzimuth2,-mAzzimuth,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-//        currentAzzimuth2 =  mAzzimuth;
-//
-//        anim.setDuration(10);
-//        anim.setRepeatCount(0);
-//        anim.setFillAfter(true);
 
         mImage.setRotation(-mAzzimuth);
 
 
-//        String where = "No";
 
         if(mAzzimuth >=  350 || mAzzimuth <= 10){
-//            where = "N";
+
 
             azziText.setText(mAzzimuth + " ° " + "N");
         }else if(mAzzimuth >=  350 || mAzzimuth > 280){
-//            where = "NW";
+
             azziText.setText(mAzzimuth + " ° " + "NW");
         }else if(mAzzimuth >=  280 || mAzzimuth > 260){
 //            where = "W";
@@ -655,7 +667,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void applyValue(Integer Height) {
-        height.setText("H :" + Height.toString());
+        height.setText(Height.toString());
 
     }
 }

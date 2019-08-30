@@ -251,22 +251,40 @@ limitations under the License. -->
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/action">
+
             <LinearLayout
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:orientation="horizontal">
+                <TextView
 
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/H"
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:text="H : "
+                    android:textColor="#ffff"
+                    android:textSize="20dp"
+                    android:layout_height="wrap_content"/>
                 <TextView
                     android:id="@+id/height"
-                    android:padding="15dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="H: 1,5"
+                    android:text="1"
                     android:textColor="#ffff"
                     android:textSize="20dp"/>
+
+
             </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -313,10 +331,18 @@ limitations under the License. -->
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
 
+
                 <Button
+                    android:id="@+id/calculate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="Count"/>
+                <Button
+                    android:id="@+id/distance"
                     android:layout_width="103dp"
                     android:layout_height="wrap_content"
-                    android:text="Count" />
+                    android:text="Get Distance" />
 
             </LinearLayout>
 
@@ -344,6 +370,40 @@ limitations under the License. -->
 
 
             </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:paddingTop="150dp"
+                    android:visibility="gone"
+                    android:id="@+id/displayDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sample distance"
+                    android:textColor="#ffff"/>
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/displayHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sample height"
+                    android:textColor="#ffff"/>
+            </LinearLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

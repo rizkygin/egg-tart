@@ -760,6 +760,7 @@ drawable tooltip_frame_light
 id ALT
 id CTRL
 id FUNCTION
+id H
 id META
 id SHIFT
 id SYM
@@ -796,6 +797,7 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
+id calculate
 id center
 id center_horizontal
 id center_vertical
@@ -819,6 +821,9 @@ id degree
 id dimensions
 id direct
 id disableHome
+id displayDistance
+id displayHeight
+id distance
 id down
 id edit_query
 id end
