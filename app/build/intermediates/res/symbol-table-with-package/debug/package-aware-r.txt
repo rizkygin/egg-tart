@@ -850,10 +850,8 @@ id info
 id invisible
 id italic
 id label_altitude
-id label_azimuth
 id label_group
 id label_pitch
-id label_roll
 id lat
 id left
 id light
@@ -935,11 +933,9 @@ id uniform
 id up
 id useLogo
 id value_altitude
-id value_azimuth
 id value_latitude
 id value_longitude
 id value_pitch
-id value_roll
 id wide
 id withText
 id wrap

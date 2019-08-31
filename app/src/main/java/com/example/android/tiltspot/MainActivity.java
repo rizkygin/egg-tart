@@ -223,9 +223,7 @@ public class MainActivity extends AppCompatActivity
         mImage = findViewById(R.id.com);
 
         azziText = findViewById(R.id.degree);
-        mTextSensorAzimuth = (TextView) findViewById(R.id.value_azimuth);
         mTextSensorPitch = (TextView) findViewById(R.id.value_pitch);
-        mTextSensorRoll = (TextView) findViewById(R.id.value_roll);
 
         //location
         longitude = findViewById(R.id.value_longitude);
@@ -243,6 +241,7 @@ public class MainActivity extends AppCompatActivity
         mDisplayD = findViewById(R.id.displayDistance);
         mDisplayH = findViewById(R.id.displayHeight);
         final String  h = height.getText().toString();
+//        final double  derajat =  Math.toDegrees(degree);
         dist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,10 +254,17 @@ public class MainActivity extends AppCompatActivity
 
                 mDisplayD.setVisibility(View.VISIBLE);
                 mDisplayD.setText(getResources().getString(R.string.value_format,distance)+ " M");
-//                dist.setVisibility(View.INVISIBLE);
+                dist.setVisibility(View.INVISIBLE);
             }
         });
 
+         final double
+        count.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
 
@@ -491,10 +497,11 @@ public class MainActivity extends AppCompatActivity
         float azimuth = orientationValues[0] ;
         double pitch = orientationValues[1];
 
-        if(pitch < 0){
-            pitch = -pitch;
-            this.degree = (double) pitch;
-        }
+        this.degree = (double) pitch;
+
+//        if(pitch < 0){
+//            pitch = -pitch;
+//        }
         float roll = orientationValues[2];
 
 
@@ -502,11 +509,8 @@ public class MainActivity extends AppCompatActivity
         mAl.setText(getResources().getString(
                 R.string.value_format, altitude));
 
-        mTextSensorAzimuth.setText(getResources().getString(
-                R.string.value_format, azimuth));
         mTextSensorPitch.setText(getResources().getString(
                 R.string.value_format, pitch ));
-        mTextSensorRoll.setText(getResources().getString(R.string.value_format, roll));
 
 
 
@@ -590,6 +594,13 @@ public class MainActivity extends AppCompatActivity
         stopBackgroundThread();
         stop();
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        stopBackgroundThread();
+        super.onDestroy();
+        stop();
     }
 
     private void stop() {
