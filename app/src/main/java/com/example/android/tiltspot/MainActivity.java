@@ -258,11 +258,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-         final double
+         final double realHeight = 0.0f;
         count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                
             }
         });
         assert textureView != null;
@@ -596,13 +596,6 @@ public class MainActivity extends AppCompatActivity
         super.onPause();
     }
 
-    @Override
-    protected void onDestroy() {
-        stopBackgroundThread();
-        super.onDestroy();
-        stop();
-    }
-
     private void stop() {
         if(haveSensor && haveSensor2 ){
             mSensorManager.unregisterListener(this,accelometer);
@@ -613,11 +606,16 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void stopBackgroundThread() {
-            mBackgroundThread.quitSafely();
+
+        mBackgroundThread.quitSafely();
         try{
+
             mBackgroundThread.join();
             mBackgroundThread = null;
-            mBackgroundHandler =null;
+            mBackgroundHandler = null;
+
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
