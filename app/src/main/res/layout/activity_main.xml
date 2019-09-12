@@ -46,32 +46,32 @@ limitations under the License. -->
 
 
         <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:textColor="#ffff"
-            android:id="@+id/degree"
-            android:layout_width="match_parent"
+            android:padding="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="123 "
-            app:layout_constraintBottom_toTopOf="@+id/com"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/com"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/compas2"/>
+            <TextView
+                android:textColor="#ffff"
+                android:id="@+id/degree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="123 "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/com"-->
+    <!--            android:layout_width="100dp"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:layout_marginTop="2dp"-->
+    <!--            android:background="@drawable/compas2"/>-->
 
 
-    </LinearLayout>
+         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/label_group"
         android:layout_width="wrap_content"
@@ -117,8 +117,10 @@ limitations under the License. -->
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/value_format"
+                app:layout_constraintRight_toRightOf="parent"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                app:layout_constraintLeft_toRightOf="@id/label_pitch"/>
+                app:layout_constraintLeft_toRightOf="@id/label_pitch"
+                app:layout_constraintBottom_toTopOf="@id/value_altitude"/>
 
 
             <TextView
@@ -223,30 +225,58 @@ limitations under the License. -->
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:id="@+id/H"
-                    android:layout_width="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingTop="15dp"
-                    android:text="H : "
-                    android:textColor="#ffff"
-                    android:textSize="20dp"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/height"
-                    android:paddingLeft="2dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="15dp"
-                    android:paddingTop="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textColor="#ffff"
-                    android:textSize="20dp"/>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/H"
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="H : "
+                        android:textColor="#ffff"
+                        android:textSize="20dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/height"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="#ffff"
+                        android:textSize="20dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/A"
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="A : "
+                        android:textColor="#ffff"
+                        android:textSize="20dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/Accuracy"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="#ffff"
+                        android:textSize="20dp"/>
+
+                </LinearLayout>
+
 
 
             </LinearLayout>
@@ -263,7 +293,9 @@ limitations under the License. -->
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:padding="50dp"
+                android:paddingBottom="50dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 android:gravity="center"
                 android:id="@+id/lat"
                 android:layout_width="wrap_content"
@@ -272,17 +304,43 @@ limitations under the License. -->
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-                <TextView
-                    android:textColor="#ffff"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Latitude"/>
-                <TextView
-                    android:textColor="#ffff"
-                    android:id="@+id/value_latitude"
-                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SL"/>
+                    <TextView
+                        android:textColor="#ffff"
+                        android:id="@+id/value_SL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Latitude"/>
+                    <TextView
+                        android:textColor="#ffff"
+                        android:id="@+id/value_latitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -303,17 +361,25 @@ limitations under the License. -->
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:text="Count"/>
+                    android:text="Get Location"/>
                 <Button
                     android:id="@+id/distance"
                     android:layout_width="103dp"
                     android:layout_height="wrap_content"
                     android:text="Get Distance" />
+                <Button
+                    android:id="@+id/getHeight"
+                    android:layout_width="103dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="Get Height" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:padding="50dp"
+                android:paddingBottom="50dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 android:gravity="center"
                 android:id="@+id/longi"
                 android:layout_width="wrap_content"
@@ -321,18 +387,45 @@ limitations under the License. -->
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EL"/>
+                    <TextView
+                        android:textColor="#ffff"
+                        android:id="@+id/value_EL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"/>
 
-                <TextView
-                    android:textColor="#ffff"
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Longitude"/>
-                <TextView
-                    android:textColor="#ffff"
-                    android:id="@+id/value_longitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textColor="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Longitude"/>
+                    <TextView
+                        android:textColor="#ffff"
+                        android:id="@+id/value_longitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"/>
+
+                </LinearLayout>
+
+
 
 
             </LinearLayout>
@@ -348,25 +441,49 @@ limitations under the License. -->
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:paddingTop="150dp"
-                    android:visibility="gone"
                     android:id="@+id/displayDistance"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:text="sample distance"
                     android:textColor="#ffff"/>
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/displayHeight"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="sample height"
+                    android:visibility="gone"
                     android:textColor="#ffff"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/mX"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:textColor="#ffff"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Utm"/>
+                    <TextView
+                        android:id="@+id/mY"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:padding="10dp"
+                        android:textColor="#ffff"
+                        android:text="Utm"/>
+                </LinearLayout>
             </LinearLayout>
 
 

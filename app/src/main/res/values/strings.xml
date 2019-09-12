@@ -25,4 +25,6 @@ limitations under the License. -->
      %1 is the value to replace
      $.2f says the value is a float, with two decimal places.  -->
     <string name="value_format">%1$.2f</string>
+    <string name="utm_format">%1$.3f</string>
+
 </resources>

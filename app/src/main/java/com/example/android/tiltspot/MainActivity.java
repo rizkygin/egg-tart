@@ -17,12 +17,10 @@
 package com.example.android.tiltspot;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -33,33 +31,24 @@ import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
-import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.location.Location;
-import android.media.Image;
-import android.media.ImageReader;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Size;
-import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -71,15 +60,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity
@@ -116,9 +97,7 @@ public class MainActivity extends AppCompatActivity
     TextView mAl;
 
     //camera
-    private CaptureRequest.Builder captureBuilder;
     private Size imageDimension;
-    private ImageReader imageReader;
     private CameraDevice cameraDevice;
     private CameraCaptureSession cameraCaptureSessions;
     private CaptureRequest.Builder  captureRequestBuilder ;
@@ -177,14 +156,14 @@ public class MainActivity extends AppCompatActivity
 
     // Accelerometer and magnetometer sensors, as retrieved from the
     // sensor manager.
+    double pitch;
     float[] rotationMatrix = new float[9];
     private Sensor mSensorAccelerometer;
     private Sensor mSensorMagnetometer;
     private Sensor mSensorBaromoter;
 
     // TextViews to display current sensor values.
-    private TextView mTextSensorAzimuth,mTextSensorPitch;
-    private TextView mTextSensorRoll;
+    private TextView mTextSensorPitch;
 
     //Texture View
 
@@ -196,7 +175,11 @@ public class MainActivity extends AppCompatActivity
     private static final float VALUE_DRIFT = 0.05f;
 
     //location
+    TextView accuracy,mEL,mSL;
     private TextView longitude,latitude;
+    private double utmLatitude;
+    private double utmLongitude;
+
     FusedLocationProviderClient mFusedLocationClient;
     Location mLastLocation;
     Integer REQUEST_LOCATION_PERMISSION = 2;
@@ -205,10 +188,16 @@ public class MainActivity extends AppCompatActivity
     private TextView height;
     private Button dist;
     private Button count;
+    private Button bHeight;
     private double distance;
+
+    private double realHeight;
     private double degree;
     //display height and Display Distance
-    private TextView mDisplayD , mDisplayH;
+    private TextView mDisplayD , mDisplayH, mtX,mtY;
+    private double tempPitch;
+    private double pitchHeight;
+    private boolean clicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,51 +209,84 @@ public class MainActivity extends AppCompatActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mAl = findViewById(R.id.value_altitude);
-        mImage = findViewById(R.id.com);
 
         azziText = findViewById(R.id.degree);
         mTextSensorPitch = (TextView) findViewById(R.id.value_pitch);
 
         //location
+        mSL = findViewById(R.id.value_SL);
+        mEL = findViewById(R.id.value_EL);
         longitude = findViewById(R.id.value_longitude);
         latitude = findViewById(R.id.value_latitude);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        accuracy = findViewById(R.id.Accuracy);
         getLocation();
 
-        textureView = findViewById(R.id.textureView) ;
+        textureView = findViewById(R.id.textureView);
 
-        //count
 
+        //count distance
         height = findViewById(R.id.height);
         dist = findViewById(R.id.distance);
         count = findViewById(R.id.calculate);
+        bHeight = findViewById(R.id.getHeight);
         mDisplayD = findViewById(R.id.displayDistance);
         mDisplayH = findViewById(R.id.displayHeight);
         final String  h = height.getText().toString();
-//        final double  derajat =  Math.toDegrees(degree);
+        // get coordinat object
+        mtX = findViewById(R.id.mX);
+        mtY = findViewById(R.id.mY);
+        //        final double  derajat =  Math.toDegrees(degree);
         dist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 count.setVisibility(View.VISIBLE);
-                distance =  Integer.parseInt(height.getText().toString()) * Math.tan(degree);
+                mDisplayD.setVisibility(View.VISIBLE);
+
+                clicked = true;
+                distance =  Integer.parseInt(height.getText().toString()) * Math.tan(pitch);
+                tempPitch = pitch;
                 if(distance < 0 ){
                     distance = -distance;
                 }
-                Toast.makeText(MainActivity.this, "tan " + Math.tan(degree), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "tan " + pitch, Toast.LENGTH_SHORT).show();
 
                 mDisplayD.setVisibility(View.VISIBLE);
                 mDisplayD.setText(getResources().getString(R.string.value_format,distance)+ " M");
                 dist.setVisibility(View.INVISIBLE);
             }
         });
+        //count convert UTM
 
-         final double realHeight = 0.0f;
+            //Dx and Dy
+            final double mDx = distance+(distance * Math.sin(pitch));
+            final double mDy = distance+(distance * Math.cos(pitch));
+
         count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                mtX.setVisibility(View.VISIBLE);
+                mtX.setText(getResources().getString(R.string.value_format,mDx));
+                mtY.setVisibility(View.VISIBLE);
+                mtX.setText(getResources().getString(R.string.value_format,mDy));
+
             }
         });
+        bHeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pitchHeight = pitch - 1.5 ;
+                if(pitchHeight < 0 ){
+                    pitchHeight = -pitchHeight;
+                }
+                mDisplayH.setVisibility(View.VISIBLE);
+                realHeight =   Integer.parseInt(height.getText().toString())+ (distance * Math.tan(pitchHeight));
+                mDisplayH.setText(getResources().getString(R.string.value_format,realHeight));
+
+            }
+        });
+
+
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
 
@@ -494,23 +516,21 @@ public class MainActivity extends AppCompatActivity
             SensorManager.getOrientation(rotationMatrix, orientationValues);
         }
 
-        float azimuth = orientationValues[0] ;
-        double pitch = orientationValues[1];
+        pitch = orientationValues[1];
+        if(pitch <= 0 ){
+            pitch = -pitch;
+        }
+        if(pitch >= 1.5 && clicked){
+            bHeight.setVisibility(View.VISIBLE) ;
+        }
 
-        this.degree = (double) pitch;
-
-//        if(pitch < 0){
-//            pitch = -pitch;
-//        }
-        float roll = orientationValues[2];
-
-
+        this.degree = Math.toDegrees(pitch);
 
         mAl.setText(getResources().getString(
                 R.string.value_format, altitude));
 
         mTextSensorPitch.setText(getResources().getString(
-                R.string.value_format, pitch ));
+                R.string.value_format, pitch));
 
 
 
@@ -524,7 +544,7 @@ public class MainActivity extends AppCompatActivity
         mAzzimuth = Math.round(mAzzimuth);
 
 
-        mImage.setRotation(-mAzzimuth);
+//        mImage.setRotation(-mAzzimuth);
 
 
 
@@ -564,7 +584,19 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
-        //
+
+        mFusedLocationClient.getLastLocation().addOnSuccessListener(
+                new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            mLastLocation = location;
+                            accuracy.setText(getResources().getString(R.string.value_format,mLastLocation.getAccuracy()));
+
+                        }
+                    }
+
+                });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -660,8 +692,16 @@ public class MainActivity extends AppCompatActivity
                         public void onSuccess(Location location) {
                             if (location != null) {
                                 mLastLocation = location;
+                                utmLatitude = mLastLocation.getLatitude();
                                 latitude.setText(getString(R.string.format,mLastLocation.getLatitude()));
                                 longitude.setText(getString(R.string.format,mLastLocation.getLongitude()));
+                                utmLongitude = mLastLocation.getLongitude();
+                                accuracy.setText(getString(R.string.format,mLastLocation.getAccuracy()));
+
+                                utmLatitude = utmLatitude * 110574.610;
+                                utmLongitude = (utmLongitude - 108.0)*(111302.617) +166021.41;
+                                mSL.setText(getString(R.string.utm_format,utmLatitude));
+                                mEL.setText(getString(R.string.utm_format,utmLongitude));
 
                             } else {
                                 longitude.setText("No location founded");
