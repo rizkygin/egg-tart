@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        mAl = findViewById(R.id.value_altitude);
+//        mAl = findViewById(R.id.value_altitude);
 
         azziText = findViewById(R.id.degree);
         mTextSensorPitch = (TextView) findViewById(R.id.value_pitch);
@@ -526,7 +526,10 @@ public class MainActivity extends AppCompatActivity
         pitch = orientationValues[1];
 //        mAzzimuth = (float)Math.toDegrees(orientationValues[0]);
 //        mAzzimuth = (mAzzimuth+360)%360;
-        azziText.setText(getResources().getString(R.string.value_format,mAzzimuth));
+        direction(mAzzimuth);
+
+
+
         if(pitch <= 0 ){
             pitch = -pitch;
         }
@@ -538,6 +541,28 @@ public class MainActivity extends AppCompatActivity
                 R.string.value_format, altitude));
         mTextSensorPitch.setText(getResources().getString(
                 R.string.value_format, pitch));
+    }
+
+    private void direction(float mAzzimuth) {
+        String where = "no Direction";
+        if(mAzzimuth >= 350 || mAzzimuth <= 10){
+            where = "° N";
+        }else if(mAzzimuth < 350 && mAzzimuth > 200){
+            where = "° NW";
+        }else if(mAzzimuth < 280 && mAzzimuth > 260){
+            where = "° W";
+        }else if(mAzzimuth <= 260 && mAzzimuth > 190 ){
+            where = "° SW";
+        }else if(mAzzimuth <= 190 && mAzzimuth > 170 ){
+            where = "° S";
+        }else if(mAzzimuth <= 170 && mAzzimuth > 100 ){
+            where = "° SE";
+        }else if(mAzzimuth <= 100 && mAzzimuth > 80 ){
+            where = "° E";
+        }else if(mAzzimuth <= 80 && mAzzimuth > 10 ){
+            where = "° NE";
+        }
+        azziText.setText(getResources().getString(R.string.value_format,mAzzimuth) + where);
     }
 
 
@@ -644,12 +669,18 @@ public class MainActivity extends AppCompatActivity
                             if (location != null) {
                                 mLastLocation = location;
                                 utmLatitude = mLastLocation.getLatitude();
-                                latitude.setText(getString(R.string.format,mLastLocation.getLatitude()));
-                                longitude.setText(getString(R.string.format,mLastLocation.getLongitude()));
+                                latitude.setText(getString(R.string.format,utmLatitude));
                                 utmLongitude = mLastLocation.getLongitude();
+                                longitude.setText(getString(R.string.format,utmLongitude));
                                 accuracy.setText(getString(R.string.format,mLastLocation.getAccuracy()));
 
                                 utmLatitude = utmLatitude * 110574.610;
+                                if(utmLatitude <= 0 ){
+                                    utmLatitude = -utmLatitude;
+                                }
+                                if(utmLongitude <= 0){
+                                    utmLongitude =-utmLongitude;
+                                }
                                 utmLongitude = (utmLongitude - 108.0)*(111302.617) +166021.41;
                                 mSL.setText(getString(R.string.utm_format,utmLatitude));
                                 mEL.setText(getString(R.string.utm_format,utmLongitude));
