@@ -3597,14 +3597,14 @@ public final class R {
     public static final int info=0x7f07005b;
     public static final int invisible=0x7f07005c;
     public static final int italic=0x7f07005d;
-    public static final int label_altitude=0x7f07005e;
-    public static final int label_group=0x7f07005f;
-    public static final int label_pitch=0x7f070060;
-    public static final int lat=0x7f070061;
-    public static final int left=0x7f070062;
-    public static final int light=0x7f070063;
-    public static final int line1=0x7f070064;
-    public static final int line3=0x7f070065;
+    public static final int label_group=0x7f07005e;
+    public static final int label_pitch=0x7f07005f;
+    public static final int lat=0x7f070060;
+    public static final int left=0x7f070061;
+    public static final int light=0x7f070062;
+    public static final int line1=0x7f070063;
+    public static final int line3=0x7f070064;
+    public static final int linearLayout=0x7f070065;
     public static final int listMode=0x7f070066;
     public static final int list_item=0x7f070067;
     public static final int longi=0x7f070068;
@@ -3684,14 +3684,13 @@ public final class R {
     public static final int useLogo=0x7f0700b2;
     public static final int value_EL=0x7f0700b3;
     public static final int value_SL=0x7f0700b4;
-    public static final int value_altitude=0x7f0700b5;
-    public static final int value_latitude=0x7f0700b6;
-    public static final int value_longitude=0x7f0700b7;
-    public static final int value_pitch=0x7f0700b8;
-    public static final int wide=0x7f0700b9;
-    public static final int withText=0x7f0700ba;
-    public static final int wrap=0x7f0700bb;
-    public static final int wrap_content=0x7f0700bc;
+    public static final int value_latitude=0x7f0700b5;
+    public static final int value_longitude=0x7f0700b6;
+    public static final int value_pitch=0x7f0700b7;
+    public static final int wide=0x7f0700b8;
+    public static final int withText=0x7f0700b9;
+    public static final int wrap=0x7f0700ba;
+    public static final int wrap_content=0x7f0700bb;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f080000;

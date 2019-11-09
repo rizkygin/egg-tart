@@ -31,7 +31,7 @@ public class SettingDialog extends AppCompatDialogFragment {
                 }).setPositiveButton("Apply", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Integer h = Integer.parseInt(height.getText().toString());
+                Double h = Double.parseDouble(height.getText().toString());
                 listener.applyValue(h);
             }
         });
@@ -51,7 +51,7 @@ public class SettingDialog extends AppCompatDialogFragment {
     }
 
     public interface SettingDialogListener{
-        void applyValue(Integer Height);
+        void applyValue(double Height);
     }
 }
 

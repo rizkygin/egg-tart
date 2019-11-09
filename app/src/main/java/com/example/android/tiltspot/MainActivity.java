@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity
                 mDisplayD.setVisibility(View.VISIBLE);
 
                 clicked = true;
-                distance =  Integer.parseInt(height.getText().toString()) * Math.tan(pitch);
+                distance =  Float.parseFloat(height.getText().toString()) * Math.tan(pitch);
 //                tempPitch = pitch;
                 if(distance < 0 ){
                     distance = -distance;
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity
                     pitchHeight = -pitchHeight;
                 }
                 mDisplayH.setVisibility(View.VISIBLE);
-                realHeight =   Integer.parseInt(height.getText().toString())+ (distance * Math.tan(pitchHeight));
+                realHeight =   Float.parseFloat(height.getText().toString())+ (distance * Math.tan(pitchHeight));
                 mDisplayH.setText(getResources().getString(R.string.value_format,realHeight));
 
             }
@@ -537,8 +537,8 @@ public class MainActivity extends AppCompatActivity
             bHeight.setVisibility(View.VISIBLE) ;
         }
         this.degree = Math.toDegrees(pitch);
-        mAl.setText(getResources().getString(
-                R.string.value_format, altitude));
+//        mAl.setText(getResources().getString(
+//                R.string.value_format, altitude));
         mTextSensorPitch.setText(getResources().getString(
                 R.string.value_format, pitch));
     }
@@ -697,8 +697,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void applyValue(Integer Height) {
-        height.setText(Height.toString());
+    public void applyValue(double Height) {
+        height.setText(""+ Height);
 
     }
 }

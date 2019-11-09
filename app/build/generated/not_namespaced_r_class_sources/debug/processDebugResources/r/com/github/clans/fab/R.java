@@ -100,7 +100,7 @@ public final class R {
         public static final int down = 0x7f070044;
         public static final int end = 0x7f070046;
         public static final int fab_label = 0x7f070049;
-        public static final int left = 0x7f070062;
+        public static final int left = 0x7f070061;
         public static final int marquee = 0x7f07006b;
         public static final int middle = 0x7f07006e;
         public static final int mini = 0x7f07006f;

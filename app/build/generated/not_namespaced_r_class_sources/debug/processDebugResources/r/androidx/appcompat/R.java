@@ -664,9 +664,9 @@ public final class R {
         public static final int image = 0x7f070059;
         public static final int info = 0x7f07005b;
         public static final int italic = 0x7f07005d;
-        public static final int left = 0x7f070062;
-        public static final int line1 = 0x7f070064;
-        public static final int line3 = 0x7f070065;
+        public static final int left = 0x7f070061;
+        public static final int line1 = 0x7f070063;
+        public static final int line3 = 0x7f070064;
         public static final int listMode = 0x7f070066;
         public static final int list_item = 0x7f070067;
         public static final int message = 0x7f07006d;
@@ -723,7 +723,7 @@ public final class R {
         public static final int topPanel = 0x7f0700af;
         public static final int uniform = 0x7f0700b0;
         public static final int up = 0x7f0700b1;
-        public static final int wrap_content = 0x7f0700bc;
+        public static final int wrap_content = 0x7f0700bb;
     }
     public static final class integer {
         private integer() {}
